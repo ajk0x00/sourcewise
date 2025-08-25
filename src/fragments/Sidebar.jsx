@@ -21,8 +21,16 @@ const Sidebar = () => {
         <h3 className="text-xs font-medium text-neutral-600">Uploaded documents</h3>
         <button className="text-blue-600 hover:text-blue-800 text-sm">Clear All</button>
       </div>
-      <div>
-        <UploadedDoc text="Create Chatbot GPT..." />
+      <div className='h-1/3 flex-col ps-2 py-2 overflow-y-auto'>
+        <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
+        <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
+        <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
+        <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
+        <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
+        <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
+        <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
+        <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
+        <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
       </div>
     </div>
   );
