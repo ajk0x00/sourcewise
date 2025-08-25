@@ -1,17 +1,14 @@
 import React from 'react';
 
-const PrimaryButton = ({ text, icon: Icon, size='large' }) => {
-
-  const size_chart = {
-    'small' : 'w-fit h-fit',
-    'medium': 'w-md h-fit',
-    'large': 'w-lg h-fit'
-  }
+const PrimaryButton = ({ text, icon: Icon, ...props }) => {
 
   return (
-    <button className={`flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200 ease-in-out ${size_chart[size]}`}>
+    <button 
+      className='flex items-center justify-center gap-2 px-2 py-3 bg-indigo-500 text-white rounded-full hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition duration-200 ease-in-out w-55'
+      {...props}
+    >
       {Icon && <Icon />}
-      {text}
+      <span className='font-semibold'>{text}</span>
     </button>
   );
 };
