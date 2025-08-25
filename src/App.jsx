@@ -1,11 +1,9 @@
-import PrimaryButton from "./components/PrimaryButton"
-import { GrAdd } from "react-icons/gr";
-
+import Sidebar from "./fragments/Sidebar"
 
 function App() {
   return (
-    <div className="flex justify-center items-center h-screen">
-      <PrimaryButton text="New chat" icon={GrAdd} />
+    <div className="bg-slate-100 w-full h-screen flex flex-row p-4">
+      <Sidebar />
     </div>
   )
 }

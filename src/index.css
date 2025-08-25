@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: 'Mier A';
+  src: url('./assets/fonts/MierA-Regular.woff2') format('woff2'),
+       url('./assets/fonts/MierA-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mier A';
+  src: url('./assets/fonts/MierA-Light.woff2') format('woff2'),
+       url('./assets/fonts/MierA-Light.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: 'Mier A', sans-serif;
+}
