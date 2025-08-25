@@ -1,9 +1,12 @@
-import Button from "./components/Button"
+import PrimaryButton from "./components/PrimaryButton"
+import { GrAdd } from "react-icons/gr";
+
 
 function App() {
   return (
-    <h1 className="text-sm">Hello world!</h1>
+    <div className="flex justify-center items-center h-screen">
+      <PrimaryButton text="New chat" icon={GrAdd} />
+    </div>
   )
 }
-
 export default App
