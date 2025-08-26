@@ -9,7 +9,7 @@ const UploadedDoc = ({ text, onDelete }) => {
 
   return (
     <div
-      className="h-10 flex justify-between items-center rounded-s-full hover:bg-violet-50 cursor-pointer relative group"
+      className="h-10 flex justify-between items-center rounded-s-full hover:bg-slate-100 cursor-pointer relative group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
