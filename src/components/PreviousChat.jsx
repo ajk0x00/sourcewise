@@ -5,7 +5,7 @@ import { FiTrash2 } from "react-icons/fi";
 const PreviousChat = ({ text, onDelete }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const truncatedText = text.length > 50 ? text.substring(0, 50) + '...' : text;
+  const truncatedText = text.length > 20 ? text.substring(0, 20) + '...' : text;
 
   return (
     <div
