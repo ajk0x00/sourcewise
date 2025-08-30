@@ -1,6 +1,7 @@
 import React from 'react';
 import BotMessage from '../components/BotMessage';
 import UserMessage from '../components/UserMessage';
+import InputField from '../components/InputField';
 
 const ChatWindow = () => {
   return (
@@ -42,10 +43,10 @@ These are just the basic steps to get started with a chatbot using GPT in Python
         <UserMessage text="What is use of that chatbot?" />
         <BotMessage
           text={`Chatbots can be used for a wide range of purposes, including:
-
 Customer service chatbots can handle frequently asked questions, provide basic support, and help customers navigate a website or app. They can also be used to generate leads, book appointments, and make sales.`}
         />
       </div>
+      <InputField />
     </div>
   );
 };
