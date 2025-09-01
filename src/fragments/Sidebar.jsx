@@ -1,15 +1,21 @@
 import React from 'react';
 import PrimaryButton from '../components/PrimaryButton';
-import IconButton from '../components/IconButton';
+import DocUploadButton from '../components/DocUploadButton';
 import UploadedDoc from '../components/UploadedDoc';
 import PreviousChat from '../components/PreviousChat';
 import SecondaryButton from '../components/SecondaryButton';
+import girlProfile from '../assets/girlProfile.png';
+import { uploadFile } from '../services/uploadDoc'
 import { GrAdd } from 'react-icons/gr';
 import { SlCloudUpload } from "react-icons/sl";
 import { RiSettings3Line } from "react-icons/ri";
-import girlProfile from '../assets/girlProfile.png';
 
 const Sidebar = () => {
+
+  const handleDocUpload = e => {
+    const file = e.target.files[0];
+    uploadFile(file);
+  }
 
   const settingsIcon = () => (
     <div className='flex items-center justify-center p-2 w-fit h-fit rounded-full bg-zinc-100'>
@@ -31,7 +37,7 @@ const Sidebar = () => {
         </div>
         <div className="flex items-center space-x-2">
           <PrimaryButton text="New chat" icon={GrAdd}/>
-          <IconButton icon={SlCloudUpload} />
+          <DocUploadButton icon={SlCloudUpload} onChange={handleDocUpload}/>
         </div>
       </div>
       <div className='flex-col w-full h-fit'>
