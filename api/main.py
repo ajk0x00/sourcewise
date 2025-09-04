@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request, UploadFile, File
+from fastapi import FastAPI, UploadFile, File, Body
 from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -6,6 +6,9 @@ from dotenv import load_dotenv
 from tempfile import NamedTemporaryFile
 from os import getenv
 from json import dumps
+from qbot import Qbot
+from vector_db import VectorStore
+
 
 from langchain_community.document_loaders import UnstructuredPDFLoader
 from langchain_community.document_loaders import UnstructuredWordDocumentLoader
@@ -20,7 +23,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-bot = Qbot()
+vector_store = VectorStore(
+    uri=getenv('VDB_URI'),
+    token=getenv('VDB_TOKEN')
+)
+bot = Qbot(vector_store)
 
 
 @app.post('/upload')
@@ -60,7 +67,7 @@ def add_documents_to_vectorstore(documents, filename):
         yield f"data: {response}"
 
 
-@app.post('/ask')
+@app.get('/ask')
 async def ask(question: str):
     """
     Endpoint to ask a question and get an answer from the LLM.
