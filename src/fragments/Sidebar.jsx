@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import PrimaryButton from '../components/PrimaryButton';
 import DocUploadButton from '../components/DocUploadButton';
 import UploadedDoc from '../components/UploadedDoc';
@@ -12,9 +12,12 @@ import { RiSettings3Line } from "react-icons/ri";
 
 const Sidebar = () => {
 
+  const [uploadedDocs, setUploadedDocs] = useState([])
+
   const handleDocUpload = e => {
     const file = e.target.files[0];
     uploadFile(file);
+    setUploadedDocs([...uploadedDocs, file.name])
   }
 
   const settingsIcon = () => (
@@ -44,18 +47,12 @@ const Sidebar = () => {
         <div>
           <div className="border border-slate-100 flex justify-between items-center px-5 py-3">
             <h3 className="text-xs font-medium text-neutral-600">Uploaded documents</h3>
-            <button className="text-blue-600 hover:text-blue-800 text-xs">Clear All</button>
+            <button className={`${uploadedDocs.length > 0 ? 'text-blue-600 hover:text-blue-800' : 'text-neutral-400'} text-xs`} disabled={uploadedDocs.length == 0}>Clear All</button>
           </div>
           <div className='h-35 flex-col ps-2 py-2 overflow-y-auto no-scrollbar'>
-            <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
-            <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
-            <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
-            <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
-            <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
-            <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
-            <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
-            <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
-            <UploadedDoc text="Hypothalamus.pdf" onDelete={() => {}}/>
+            {uploadedDocs.map((doc, index) => (
+              <UploadedDoc key={index} text={doc} onDelete={() => {}}/>
+            ))}
           </div>
         </div>
         <div>
