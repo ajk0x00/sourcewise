@@ -1,2 +1,9 @@
 fastapi[standard]
 dotenv
+
+langchain
+langchain-google-genai
+langchain_milvus
+langchain_community
+
+unstructured[all-docs]
