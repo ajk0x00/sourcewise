@@ -31,6 +31,10 @@ class VectorStore:
             })
             yield response
 
+    def query_similar_context(self, question):
+        return self.vectorstore.similarity_search(question)
+
+
 if __name__ == '__main__':
     from dotenv import load_dotenv
     from os import getenv
