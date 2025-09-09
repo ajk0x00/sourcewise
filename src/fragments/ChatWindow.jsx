@@ -30,15 +30,19 @@ const ChatWindow = () => {
 
   return (
     <div className="flex flex-col items-center h-full w-full py-4 rounded-lg">
-      <div className="flex-grow w-3/4 overflow-y-auto pr-4 no-scrollbar">
-        {messages.map((msg, index) => (
-          msg.role === 'user' ? 
-            <UserMessage key={index} text={msg.content} /> : 
-            <BotMessage key={index} text={msg.content} />
-        ))}
-        {lastResponse && <BotMessage text={lastResponse} />}
+      <div className="flex flex-col flex-grow w-3/4 overflow-y-auto pr-4 no-scrollbar">
+        <div className="flex-grow">
+          {messages.map((msg, index) => (
+            msg.role === 'user' ? 
+              <UserMessage key={index} text={msg.content} /> : 
+              <BotMessage key={index} text={msg.content} />
+          ))}
+          {lastResponse && <BotMessage text={lastResponse} />}
+        </div>
+        <div className="flex items-center justify-center sticky bottom-0">
+          <InputField onSubmit={handleSendMessage}/>
+        </div>
       </div>
-      <InputField onSubmit={handleSendMessage}/>
     </div>
   );
 };

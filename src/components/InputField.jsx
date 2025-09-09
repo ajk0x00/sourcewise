@@ -21,7 +21,7 @@ const InputField = ({ onSubmit }) => {
   }
 
   return (
-    <div className="flex items-center bg-white rounded-full py-3 px-5 shadow-md w-4/8 focus:2/3">
+    <div className="flex items-center bg-white rounded-full py-3 px-5 shadow-md w-2/3">
       <img src={brain} alt="brain" className="w-8 h-8 mr-2 focus:w-2/3"/>
       <input
         type="text"
