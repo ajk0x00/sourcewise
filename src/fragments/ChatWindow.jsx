@@ -39,7 +39,7 @@ const ChatWindow = () => {
           ))}
           {lastResponse && <BotMessage text={lastResponse} />}
         </div>
-        <div className="flex items-center justify-center sticky bottom-0">
+        <div className="flex items-center justify-center sticky bottom-0 bg-gradient-to-t from-slate-100 to-transparent p-4">
           <InputField onSubmit={handleSendMessage}/>
         </div>
       </div>
