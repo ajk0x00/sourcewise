@@ -5,7 +5,7 @@ import { FiTrash2 } from "react-icons/fi";
 const UploadedDoc = ({ text, onDelete }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  const truncatedText = text.length > 50 ? text.substring(0, 50) + '...' : text;
+  const truncatedText = text.length > 20 ? text.substring(0, 20) + '...' : text;
 
   return (
     <div
@@ -13,14 +13,14 @@ const UploadedDoc = ({ text, onDelete }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className='flex items-center space-x-2 py-3'>
+      <div className='flex items-center space-x-2 px-2 py-3 w-4/5'>
         <CiFileOn className="text-gray-500 text-xl" />
         <div className="flex-grow text-sm text-gray-800 overflow-hidden text-ellipsis whitespace-nowrap">
           {truncatedText}
         </div>
       </div>
       {isHovered && onDelete && 
-        <div className='flex items-center justify-center h-full ps-4 rounded-s-full bg-indigo-100'>
+        <div className='flex items-center justify-center w-1/5 h-full ps-4 rounded-s-full bg-indigo-100'>
           <FiTrash2
             className="text-gray-500 bg-indigo-100 hover:text-red-600 text-lg cursor-pointer me-2"
             onClick={onDelete}
