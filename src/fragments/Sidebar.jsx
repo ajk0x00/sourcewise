@@ -8,7 +8,6 @@ import girlProfile from '../assets/girlProfile.png';
 import { uploadFile } from '../services/uploadDoc'
 import { GrAdd } from 'react-icons/gr';
 import { SlCloudUpload } from "react-icons/sl";
-import { RiSettings3Line } from "react-icons/ri";
 
 const Sidebar = () => {
 
@@ -19,12 +18,6 @@ const Sidebar = () => {
     uploadFile(file);
     setUploadedDocs([...uploadedDocs, file.name])
   }
-
-  const settingsIcon = () => (
-    <div className='flex items-center justify-center p-2 w-fit h-fit rounded-full bg-zinc-100'>
-      <RiSettings3Line />
-    </div>
-  )
 
   const profilePic = () => (
     <div className='w-7 h-7 rounded-full'>
@@ -52,9 +45,9 @@ const Sidebar = () => {
           {uploadedDocs.map((doc, index) => (
             <UploadedDoc key={index} text={doc} onDelete={() => {}}/>
           ))}
+        </div>
       </div>
-      </div>
-      <div className='h-5/14 flex-grow-1'>
+      <div className='relative h-5/14 flex-grow-1'>
         <div className="h-fit flex justify-between items-center px-5 py-3">
           <h3 className="text-xs font-medium text-neutral-600">Your conversations</h3>
           <button className="text-blue-600 hover:text-blue-800 text-xs">Clear All</button>
@@ -70,9 +63,9 @@ const Sidebar = () => {
           <PreviousChat text="What is Hypothalamus?" onDelete={() => {}}/>
           <PreviousChat text="What is Hypothalamus?" onDelete={() => {}}/>
         </div>
+        <div className='absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white to-transparent'></div>
       </div>
       <div className='h-fit flex-grow-0'>
-        <SecondaryButton text="Settings" icon={settingsIcon}/>
         <SecondaryButton text="Lazy Mango" icon={profilePic}/>
       </div>
     </div>
