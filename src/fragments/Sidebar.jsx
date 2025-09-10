@@ -41,7 +41,7 @@ const Sidebar = () => {
             <h3 className="text-xs font-medium text-neutral-600">Uploaded documents</h3>
             <button className={`${uploadedDocs.length > 0 ? 'text-blue-600 hover:text-blue-800' : 'text-neutral-400'} text-xs`} disabled={uploadedDocs.length == 0}>Clear All</button>
         </div>
-        <div className='max-h-4/5 flex-col ps-2 py-2 overflow-y-auto no-scrollbar'>
+        <div className='max-h-4/5 flex-col py-2 overflow-y-auto no-scrollbar'>
           {uploadedDocs.map((doc, index) => (
             <UploadedDoc key={index} text={doc} onDelete={() => {}}/>
           ))}
@@ -49,11 +49,11 @@ const Sidebar = () => {
         <div className='absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white to-transparent'></div>
       </div>
       <div className='relative h-5/14 flex-grow-1'>
-        <div className="h-fit flex justify-between items-center px-5 py-3">
+        <div className="h-fit flex justify-between items-center py-3">
           <h3 className="text-xs font-medium text-neutral-600">Your conversations</h3>
           <button className="text-blue-600 hover:text-blue-800 text-xs">Clear All</button>
         </div>
-        <div className='flex-col ps-2 py-2 max-h-4/5 overflow-y-auto no-scrollbar'>
+        <div className='flex-col py-2 max-h-4/5 overflow-y-auto no-scrollbar'>
           <PreviousChat text="What is Hypothalamus?" onDelete={() => {}}/>
           <PreviousChat text="What is Hypothalamus?" onDelete={() => {}}/>
           <PreviousChat text="What is Hypothalamus?" onDelete={() => {}}/>
