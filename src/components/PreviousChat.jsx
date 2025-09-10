@@ -13,9 +13,9 @@ const PreviousChat = ({ text, onDelete }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className='flex items-center space-x-2 py-3 px-2'>
-        <LuMessageCircleMore className="text-gray-500 text-xl" />
-        <div className="flex-grow text-sm text-gray-800 overflow-hidden text-ellipsis whitespace-nowrap w-4/5">
+      <div className='flex items-center space-x-2 py-3 px-2 group'>
+        <LuMessageCircleMore className="text-gray-500 group-hover:text-indigo-500 text-xl" />
+        <div className="flex-grow text-sm text-gray-800 group-hover:text-indigo-500 group-hover:font-semibold overflow-hidden text-ellipsis whitespace-nowrap w-4/5">
           {truncatedText}
         </div>
       </div>

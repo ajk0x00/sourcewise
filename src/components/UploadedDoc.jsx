@@ -13,9 +13,9 @@ const UploadedDoc = ({ text, onDelete }) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className='flex items-center space-x-2 px-2 py-3 w-4/5'>
-        <CiFileOn className="text-gray-500 text-xl" />
-        <div className="flex-grow text-sm text-gray-800 overflow-hidden text-ellipsis whitespace-nowrap">
+      <div className='flex items-center space-x-2 px-2 py-3 w-4/5 group'>
+        <CiFileOn className="text-gray-500 text-xl group-hover:text-indigo-500" />
+        <div className="flex-grow text-sm text-gray-800 group-hover:text-indigo-500 group-hover:font-semibold overflow-hidden text-ellipsis whitespace-nowrap w-4/5">
           {truncatedText}
         </div>
       </div>
