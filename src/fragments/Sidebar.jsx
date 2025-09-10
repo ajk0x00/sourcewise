@@ -34,7 +34,7 @@ const Sidebar = () => {
 
   return (
     <div className="h-full w-fit flex flex-col bg-white rounded-3xl p-5">
-      <div className='h-fit border-2 border-amber-300 flex-grow-0'>
+      <div className='h-fit flex-grow-0'>
         <div className="mb-6">
           <h2 className="text-xl font-semibold">Source Wise</h2>
         </div>
@@ -43,8 +43,8 @@ const Sidebar = () => {
           <DocUploadButton icon={SlCloudUpload} onChange={handleDocUpload}/>
         </div>
       </div>
-      <div className='h-5/14 border-2 border-green-300 flex-grow-1'>
-        <div className="h-fit border border-slate-100 flex justify-between items-center py-3">
+      <div className='h-5/14 flex-grow-1'>
+        <div className="h-fit flex justify-between items-center py-3">
             <h3 className="text-xs font-medium text-neutral-600">Uploaded documents</h3>
             <button className={`${uploadedDocs.length > 0 ? 'text-blue-600 hover:text-blue-800' : 'text-neutral-400'} text-xs`} disabled={uploadedDocs.length == 0}>Clear All</button>
         </div>
@@ -54,8 +54,8 @@ const Sidebar = () => {
           ))}
       </div>
       </div>
-      <div className='h-5/14 border-2 border-blue-300 flex-grow-1'>
-        <div className="h-fit border border-slate-100 flex justify-between items-center px-5 py-3">
+      <div className='h-5/14 flex-grow-1'>
+        <div className="h-fit flex justify-between items-center px-5 py-3">
           <h3 className="text-xs font-medium text-neutral-600">Your conversations</h3>
           <button className="text-blue-600 hover:text-blue-800 text-xs">Clear All</button>
         </div>
@@ -71,7 +71,7 @@ const Sidebar = () => {
           <PreviousChat text="What is Hypothalamus?" onDelete={() => {}}/>
         </div>
       </div>
-      <div className='h-fit border-2 border-red-300 flex-grow-0'>
+      <div className='h-fit flex-grow-0'>
         <SecondaryButton text="Settings" icon={settingsIcon}/>
         <SecondaryButton text="Lazy Mango" icon={profilePic}/>
       </div>
