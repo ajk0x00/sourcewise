@@ -66,7 +66,7 @@ const Sidebar = () => {
         </div>
         <div className='absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white to-transparent'></div>
       </div>
-      <div className='h-fit flex-grow-0'>
+      <div className='h-fit flex-grow-0 p-4'>
         <SecondaryButton text="Lazy Mango" icon={profilePic}/>
       </div>
     </div>
