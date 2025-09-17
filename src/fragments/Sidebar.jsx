@@ -5,7 +5,7 @@ import UploadedDoc from '../components/UploadedDoc';
 import PreviousChat from '../components/PreviousChat';
 import SecondaryButton from '../components/SecondaryButton';
 import girlProfile from '../assets/girlProfile.png';
-import { uploadFile } from '../services/uploadDoc'
+import { uploadFile, deleteUploadedDoc } from '../services/uploadDoc'
 import { GrAdd } from 'react-icons/gr';
 import { SlCloudUpload } from "react-icons/sl";
 
@@ -17,6 +17,11 @@ const Sidebar = () => {
     const file = e.target.files[0];
     uploadFile(file);
     setUploadedDocs([...uploadedDocs, file.name])
+  }
+
+  const handleDelete = filename => {
+    deleteUploadedDoc(filename)
+    setUploadedDocs(uploadedDocs.filter(doc => doc !== filename))
   }
 
   const profilePic = () => (
@@ -43,7 +48,7 @@ const Sidebar = () => {
         </div>
         <div className='max-h-4/5 flex-col py-2 overflow-y-auto no-scrollbar'>
           {uploadedDocs.map((doc, index) => (
-            <UploadedDoc key={index} text={doc} onDelete={() => {}}/>
+            <UploadedDoc key={index} text={doc} onDelete={() => {handleDelete(doc)}}/>
           ))}
         </div>
         <div className='absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-white to-transparent'></div>

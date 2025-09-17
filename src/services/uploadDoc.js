@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+const API_BACKEND = import.meta.env.VITE_API_BACKEND
 export const uploadFile = async (file) => {
   const formData = new FormData();
   formData.append('file', file);
@@ -16,3 +17,10 @@ export const uploadFile = async (file) => {
     throw error;
   }
 };
+
+export const deleteUploadedDoc = async(filename) => {
+  const response = await axios.post(`${API_BACKEND}/delete`, {
+    filename: filename
+  })
+  return response.status == 200
+}
