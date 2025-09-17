@@ -76,3 +76,18 @@ async def ask(question: str):
         for chunk in bot.ask(question):
             yield f'data: {dumps({"content": chunk})}\n\n'
     return StreamingResponse(stream_response(), media_type="text/event-stream")
+
+
+@app.post('/delete')
+async def delete(filename: str = Body(..., embed=True)):
+    """
+    Endpoint to delete documents associated with a specific filename from the vector store.
+
+    Args:
+        filename (str): The name of the file whose documents are to be deleted.
+
+    Returns:
+        dict: A confirmation message.
+    """
+    vector_store.delete_documents(filename)
+    return {"message": f"Documents associated with {filename} have been deleted."}

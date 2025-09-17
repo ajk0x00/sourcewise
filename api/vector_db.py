@@ -31,6 +31,9 @@ class VectorStore:
             })
             yield response
 
+    def delete_documents(self, filename):
+        self.vectorstore.delete(expr=f'source == "{filename}"')
+
     def query_similar_context(self, question):
         return self.vectorstore.similarity_search(question)
 
